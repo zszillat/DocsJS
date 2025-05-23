@@ -44,7 +44,16 @@ router.post("/login", async (req: Request, res: Response) => {
       process.env.JWT_SECRET!,
       { expiresIn: "1d" }
     );
-    res.json({ token, user: { username: user.username, role: user.role, email: user.email } });
+    res.json({
+      token,
+      user: {
+        id: user._id,
+        username: user.username,
+        role: user.role,
+        email: user.email
+      }
+    });
+    
   } catch (err) {
     res.status(500).json({ message: "Login failed" });
   }

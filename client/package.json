@@ -11,9 +11,14 @@
     "@types/node": "^16.18.126",
     "@types/react": "^19.1.5",
     "@types/react-dom": "^19.1.5",
+    "axios": "^1.9.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-scripts": "5.0.1",
+    "slate": "^0.114.0",
+    "slate-history": "^0.113.1",
+    "slate-react": "^0.114.2",
+    "socket.io-client": "^4.8.1",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
@@ -21,7 +26,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
+    "dev": "nodemon --watch 'src/**/*.ts' --exec ts-node src/index.ts"
   },
   "eslintConfig": {
     "extends": [
@@ -40,5 +47,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint": "^8.48.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-react": "^7.37.5",
+    "globals": "^16.1.0",
+    "prettier": "^3.5.3",
+    "typescript-eslint": "^8.32.1"
   }
 }

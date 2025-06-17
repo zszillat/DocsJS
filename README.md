@@ -1,2 +1,2 @@
 # SyncBin
-open-source, self-hosted, real-time collaborative text editor alternative to google docs.
+open-source platform similar to pastebin that allows real-time editing from multiple users at once

@@ -1,20 +1,9 @@
 import './App.css'
-import { useState, useEffect } from 'react'
-import { rtdb } from './firebase'
-import { ref, onValue, set } from 'firebase/database'
 import { Routes, Route } from 'react-router'
-import { useParams } from "react-router";
 import Note from './Note'
 
 function App() {
-  const [documents, setDocuments] = useState<Record<string, any> | null>(null)
 
-  useEffect(() => {
-    const documentRef = ref(rtdb, 'documents')
-    return onValue(documentRef, snapshot => {
-      setDocuments(snapshot.val())
-    })
-  }, [])
 
   return (
     <>

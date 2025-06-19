@@ -16,7 +16,7 @@ Multiple users will be able to edit notes simultaneously and see their updates i
 2. **Firebase Setup**
     - ~~Create Firebase Project~~
     - ~~Create Realtime Database~~
-    - Setup .env File
+    - ~~Setup .env File~~
     - Integrate Firebase into ReactJS Project
 3. **Routing Pages**
     - Landing Page

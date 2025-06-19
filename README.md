@@ -14,7 +14,7 @@ Multiple users will be able to edit notes simultaneously and see their updates i
     - ~~Install Dependencies~~
     - ~~Create initial README.md~~
 2. **Firebase Setup**
-    - Create Firebase Project
+    - ~~Create Firebase Project~~
     - Create Realtime Database
     - Setup .env File
     - Integrate Firebase into ReactJS Project

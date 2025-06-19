@@ -17,10 +17,10 @@ Multiple users will be able to edit notes simultaneously and see their updates i
     - ~~Create Firebase Project~~
     - ~~Create Realtime Database~~
     - ~~Setup .env File~~
-    - Integrate Firebase into ReactJS Project
+    - ~~Integrate Firebase into ReactJS Project~~
 3. **Routing Pages**
-    - Landing Page
-    - Note View
+    - ~~Landing Page~~
+    - ~~Note View~~
 4. **Landing Page**
     - Button for Creating a New Note
         - Generate Unique 6 Character noteID

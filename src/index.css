@@ -1,4 +1,4 @@
-/* ----------------GLOBAL STYLES---------------- */
+/* ----------------------------------- GLOBAL STYLES ----------------------------------- */
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -54,7 +54,7 @@ input, button, textarea, select {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* ----------------MAIN PAGE---------------- */
+/* ----------------------------------- MAIN PAGE ----------------------------------- */
 .main-page {
   max-width: 600px;
   margin: 4rem auto;
@@ -80,11 +80,7 @@ input, button, textarea, select {
   background-color: #005bb5;
 }
 
-.main-page__options label {
-  display: block;
-  margin-bottom: 0.5rem;
-}
-
+.main-page__options label,
 .main-page__passwords label {
   display: block;
   margin-bottom: 0.5rem;
@@ -99,4 +95,75 @@ input, button, textarea, select {
   border: 1px solid #555;
   border-radius: 4px;
   color: #e0e0e0;
+}
+
+/* ------------------ NOTE PAGE ------------------ */
+.note-page {
+  width: 100%;
+  margin: 4rem 0;
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.note-page__title {
+  flex: 0 0 100%;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.note-page__error {
+  color: #ff4d4f;
+  margin-top: 0.5rem;
+}
+
+.note-page__editor,
+.note-page__preview {
+  flex: 1 1 calc(50% - 0.5rem);
+}
+
+.note-page__editor textarea {
+  width: 100%;
+  min-height: calc(100vh - 200px);
+  padding: 0.5rem;
+  background-color: #333;
+  border: 1px solid #555;
+  border-radius: 4px;
+  color: #e0e0e0;
+  font-family: inherit;
+}
+
+.note-page__preview {
+  background-color: #1e1e1e;
+  padding: 0.5rem;
+  border: 1px solid #555;
+  border-radius: 4px;
+  overflow-y: auto;
+  min-height: calc(100vh - 200px);
+}
+
+.note-page__preview::-webkit-scrollbar {
+  width: 8px;
+}
+
+.note-page__preview::-webkit-scrollbar-thumb {
+  background-color: #555;
+  border-radius: 4px;
+}
+/* ----------------------------------- MOBILE ----------------------------------- */
+@media (max-width: 600px) {
+  .note-page {
+    flex-wrap: nowrap;
+  }
+
+  .note-page__preview {
+    display: none;
+  }
+
+  .note-page__editor {
+    flex: 1 1 100%;
+  }
 }

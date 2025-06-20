@@ -34,13 +34,13 @@ Multiple users will be able to edit notes simultaneously and see their updates i
             - ~~Edit Password Textbox~~
             - ~~View Password Textbox~~
             - ~~Same Password Checkbox (Condenses 2 Textboxes into 1)~~
-5. **Note Page**
-    - Page Loading
-        - Load in View Mode
-        - Check for View Password
-    - Switching to Edit Mode
-        - Check for Edit Password
-    - Live Updates with Firebase
+5. ~~**Note Page**~~
+    - ~~Page Loading~~
+        - ~~Load in View Mode~~
+        - ~~Check for View Password~~
+    - ~~Switching to Edit Mode~~
+        - ~~Check for Edit Password~~
+    - ~~Live Updates with Firebase~~
 6. CSS Styling
     - Style Landing Page
     - Style Note Page

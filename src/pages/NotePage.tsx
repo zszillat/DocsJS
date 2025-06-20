@@ -100,7 +100,7 @@ export default function NotePage() {
     // View-Password Prompt
     if (note.access === "viewEdit" && !authorized) {
         return (
-            <div className="note-page">
+            <div className={`note-page ${isEditing ? 'note-page--edit' : 'note-page--view'}`}>
                 <h1 className="note-page__title">Protected Note</h1>
                 <p>This note requires a password to view.</p>
                 <input

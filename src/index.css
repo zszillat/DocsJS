@@ -1,5 +1,4 @@
 /* ----------------------------------- GLOBAL STYLES ----------------------------------- */
-
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -18,21 +17,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-#root {
+#root, .container {
   max-width: 1350px;
   width: 100%;
   margin: 0 auto;
   padding: 1rem;
-}
-
-.container {
-  max-width: 1350px;
-  width: 100%;
-  margin: 0 auto;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-weight: normal;
 }
 
 a {
@@ -97,7 +86,7 @@ input, button, textarea, select {
   color: #e0e0e0;
 }
 
-/* ------------------ NOTE PAGE ------------------ */
+/* ----------------------------------- NOTE PAGE ----------------------------------- */
 .note-page {
   width: 100%;
   margin: 4rem 0;
@@ -153,10 +142,12 @@ input, button, textarea, select {
   background-color: #555;
   border-radius: 4px;
 }
+
 /* ----------------------------------- MOBILE ----------------------------------- */
 @media (max-width: 600px) {
   .note-page {
-    flex-wrap: nowrap;
+    flex-direction: column;
+    flex-wrap: wrap;
   }
 
   .note-page__preview {
@@ -165,5 +156,18 @@ input, button, textarea, select {
 
   .note-page__editor {
     flex: 1 1 100%;
+    margin: 0 auto;
+    width: 100%;
   }
+
+  .note-page.note-page--view .note-page__preview {
+    display: block;
+    flex: 1 1 100%;
+    margin: 1rem 0;
+  }
+
+  .note-page.note-page--edit .note-page__preview {
+    display: none;
+  }
+  
 }

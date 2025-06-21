@@ -15,18 +15,16 @@ export default function MainPage() {
 
     const handleCreate = async () => {
         const noteId = nanoid(6); //Generates a note ID using nanoid
-
-        // Assemble note data
+        const editPasswordValue = access === "none" ? null : editPassword
+        const passwordToUse = useSame ? editPassword : viewPassword 
+        const viewPasswordValue = access === "viewEdit" ? passwordToUse : null
+        
+        // Assemble Note Data
         const noteData = {
             content: "",
-            access,
-            editPassword: access === "none" ? null : editPassword,
-            viewPassword:
-                access === "viewEdit"
-                    ? useSame
-                        ? editPassword
-                        : viewPassword
-                    : null,
+            access: access,
+            editPassword: editPasswordValue,
+            viewPassword: viewPasswordValue,
             createdAt: Date.now(),
         };
 
@@ -34,7 +32,7 @@ export default function MainPage() {
         try {
             await set(ref(db, `notes/${noteId}`), noteData);
             // Redirect to the new note
-            navigate(`/${noteId}`);
+            navigate(`/${noteId}`, { state: { justCreated: true } });
         } catch (err) {
             console.error("Error creating note:", err);
             // TODO: Implement UI

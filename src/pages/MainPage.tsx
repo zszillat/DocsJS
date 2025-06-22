@@ -40,91 +40,93 @@ export default function MainPage() {
     };
 
     return (
-        <div className="main-page">
-            <h1 className="main-page__title">SyncBin</h1>
+        <>
+            <div className="main-page">
+                <h1 className="main-page__title">SyncBin</h1>
 
-            <fieldset className="main-page__options">
-                <legend>Access Level</legend>
+                <fieldset className="main-page__options">
+                    <legend>Access Level</legend>
 
-                <label className="main-page__option">
-                    <input
-                        type="radio"
-                        name="access"
-                        value="none"
-                        checked={access === "none"}
-                        onChange={() => setAccess("none")}
-                    />
-                    No Password
-                </label>
-
-                <label className="main-page__option">
-                    <input
-                        type="radio"
-                        name="access"
-                        value="edit"
-                        checked={access === "edit"}
-                        onChange={() => setAccess("edit")}
-                    />
-                    Password to Edit
-                </label>
-
-                <label className="main-page__option">
-                    <input
-                        type="radio"
-                        name="access"
-                        value="viewEdit"
-                        checked={access === "viewEdit"}
-                        onChange={() => setAccess("viewEdit")}
-                    />
-                    Password to View & Edit
-                </label>
-            </fieldset>
-
-            {(access === "edit" || access === "viewEdit") && (
-                <div className="main-page__passwords">
-                    <label>
-                        Edit Password:
+                    <label className="main-page__option">
                         <input
-                            type="password"
-                            value={editPassword}
-                            onChange={e => setEditPassword(e.target.value)}
-                            className="main-page__input"
+                            type="radio"
+                            name="access"
+                            value="none"
+                            checked={access === "none"}
+                            onChange={() => setAccess("none")}
                         />
+                        No Password
                     </label>
 
-                    {access === "viewEdit" && (
-                        <>
-                            <label>
-                                <input
-                                    type="checkbox"
-                                    checked={useSame}
-                                    onChange={e => setUseSame(e.target.checked)}
-                                />
-                                Use same password for viewing
-                            </label>
+                    <label className="main-page__option">
+                        <input
+                            type="radio"
+                            name="access"
+                            value="edit"
+                            checked={access === "edit"}
+                            onChange={() => setAccess("edit")}
+                        />
+                        Password to Edit
+                    </label>
 
-                            {!useSame && (
+                    <label className="main-page__option">
+                        <input
+                            type="radio"
+                            name="access"
+                            value="viewEdit"
+                            checked={access === "viewEdit"}
+                            onChange={() => setAccess("viewEdit")}
+                        />
+                        Password to View & Edit
+                    </label>
+                </fieldset>
+
+                {(access === "edit" || access === "viewEdit") && (
+                    <div className="main-page__passwords">
+                        <label>
+                            Edit Password:
+                            <input
+                                type="password"
+                                value={editPassword}
+                                onChange={e => setEditPassword(e.target.value)}
+                                className="main-page__input"
+                            />
+                        </label>
+
+                        {access === "viewEdit" && (
+                            <>
                                 <label>
-                                    View Password:
                                     <input
-                                        type="password"
-                                        value={viewPassword}
-                                        onChange={e => setViewPassword(e.target.value)}
-                                        className="main-page__input"
+                                        type="checkbox"
+                                        checked={useSame}
+                                        onChange={e => setUseSame(e.target.checked)}
                                     />
+                                    Use same password for viewing
                                 </label>
-                            )}
-                        </>
-                    )}
-                </div>
-            )}
 
-            <button
-                onClick={handleCreate}
-                className="main-page__button"
-            >
-                Create New Note
-            </button>
-        </div>
+                                {!useSame && (
+                                    <label>
+                                        View Password:
+                                        <input
+                                            type="password"
+                                            value={viewPassword}
+                                            onChange={e => setViewPassword(e.target.value)}
+                                            className="main-page__input"
+                                        />
+                                    </label>
+                                )}
+                            </>
+                        )}
+                    </div>
+                )}
+
+                <button
+                    onClick={handleCreate}
+                    className="main-page__button"
+                >
+                    Create New Note
+                </button>
+            </div>
+        </>
     );
 }

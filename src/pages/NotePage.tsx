@@ -115,62 +115,80 @@ export default function NotePage() {
     // View Password
     if (note.access === "viewEdit" && !authorized) {
         return (
-            <div className="note-page">
-                <h1 className="note-page__title">Protected Note</h1>
-                <p>This note requires a password to view.</p>
-                <input
-                    type="password"
-                    placeholder="Enter view password"
-                    value={viewInput}
-                    onChange={e => setViewInput(e.target.value)}
-                    className="main-page__input" 
-                />
-                <button onClick={handleViewAuth} className="main-page__button">
-                    Submit
-                </button>
-                {viewError && <p className="note-page__error">{viewError}</p>}
-            </div>
+            <>
+                <h1>SyncBin</h1>
+                <div className="note-page">
+                    <div className="note-page__password-required-wrapper">
+                        <div className="note-page__password-required">
+
+                        
+                            <h1 className="note-page__title">Protected Note</h1>
+                            <p>This note requires a password to view.</p>
+                            <input
+                                type="password"
+                                placeholder="Enter view password"
+                                value={viewInput}
+                                onChange={e => setViewInput(e.target.value)}
+                                className="main-page__input" 
+                            />
+                            <button onClick={handleViewAuth} className="main-page__button">
+                                Submit
+                            </button>
+                            {viewError && <p className="note-page__error">{viewError}</p>}
+                        </div>
+                    </div>
+                </div>
+            </>
         );
     }
 
     return (
-        <div className={`note-page ${isEditing ? "note-page--edit" : "note-page--view"}`}>
-            {/* Toggle Pill */}
-            <div className="note-page__toggle-pill">
-                <button
-                    className={!isEditing ? "active" : ""}
-                    onClick={() => setIsEditing(false)}
-                >
-                    View
-                </button>
-                <button
-                    className={isEditing ? "active" : ""}
-                    onClick={startEditing}
-                >
-                    Edit
-                </button>
-            </div>
+        <>
+            <h1>SyncBin</h1>
+            <div className={`note-page ${isEditing ? "note-page--edit" : "note-page--view"}`}>
+                {/* Toggle Pill */}
+                <div className="note-page__toggle-pill-wrapper">
+                    <div className="note-page__toggle-pill">
+                        <button
+                            className={!isEditing ? "active" : ""}
+                            onClick={() => setIsEditing(false)}
+                        >
+                            View
+                        </button>
+                        <button
+                            className={isEditing ? "active" : ""}
+                            onClick={startEditing}
+                        >
+                            Edit
+                        </button>
+                    </div>
+                </div>
+                
 
-            {!isEditing ? (
-                <>
-                    <div className="note-page__preview">
-                        <ReactMarkdown remarkPlugins={[remarkGfm]} children={note.content} />
-                    </div>
-                    {editError && <p className="note-page__error">{editError}</p>}
-                </>
-            ) : (
-                <>
-                    <div className="note-page__editor">
-                        <textarea
-                            value={editInput}
-                            onChange={handleEditChange}
-                            className="main-page__input" />
-                    </div>
-                    <div className="note-page__preview">
-                        <ReactMarkdown remarkPlugins={[remarkGfm]} children={editInput} />
-                    </div>
-                </>
-            )}
-        </div>
+                {!isEditing ? (
+                    <>
+                        <div className="note-page__preview">
+                            <ReactMarkdown remarkPlugins={[remarkGfm]} children={note.content} />
+                        </div>
+                        {editError && <p className="note-page__error">{editError}</p>}
+                    </>
+                ) : (
+                    <>
+                        <div className="note-page__edit-view-wrapper">
+                            <div className="note-page__editor">
+                                <textarea
+                                    value={editInput}
+                                    onChange={handleEditChange}
+                                    className="main-page__input" />
+                            </div>
+                            <div className="note-page__preview">
+                                <ReactMarkdown remarkPlugins={[remarkGfm]} children={editInput} />
+                            </div>
+                        </div>
+                        
+                    </>
+                )}
+            </div>
+        </>
     );
 }

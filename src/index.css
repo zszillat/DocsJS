@@ -50,14 +50,29 @@ input, button, textarea, select {
   padding: 1rem;
 }
 
+.note-page__password-required-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.note-page__password-required {
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .main-page__title {
   font-size: 2rem;
   font-weight: bold;
-  margin-bottom: 1rem;
+  margin-bottom: 0.15rem;
 }
 
 .main-page__button {
   padding: 0.5rem 1rem;
+  margin-top: 1rem;
   background-color: #0066cc;
   color: white;
   border: none;
@@ -89,12 +104,15 @@ input, button, textarea, select {
 /* ----------------------------------- NOTE PAGE ----------------------------------- */
 .note-page {
   width: 100%;
-  margin: 1rem 0;
-  padding: 1rem;
+  padding: 2rem;
   display: flex;
-  flex-wrap: wrap;
   gap: 1rem;
-  align-items: stretch; /* stretch children to same height */
+  flex-direction: column;
+}
+
+.note-page__edit-view-wrapper {
+  display: flex;
+  gap: 1rem;
 }
 
 .note-page__title {
@@ -147,40 +165,6 @@ input, button, textarea, select {
   border-radius: 4px;
 }
 
-/* ----------------------------------- MOBILE ----------------------------------- */
-@media (max-width: 600px) {
-  .note-page {
-    flex-direction: column;
-    flex-wrap: wrap;
-  }
-
-  .note-page__editor {
-    flex: 1 1 100%;
-    margin: 0 auto;
-    width: 100%;
-  }
-
-  .note-page.note-page--view .note-page__preview {
-    display: block;
-    flex: 1 1 100%;
-    margin: 1rem 0;
-  }
-
-  .note-page.note-page--edit .note-page__preview {
-    display: none;
-  }
-
-  /* pill */
-  .note-page__toggle-pill {
-    display: flex;
-    justify-content: center;
-  }
-
-  .note-page__toggle-pill button {
-    width: 45%;
-  }
-}
-
 /* ----------------------------------- TOGGLE PILL ----------------------------------- */
 .note-page__toggle-pill {
   display: inline-flex;
@@ -207,4 +191,15 @@ input, button, textarea, select {
 .note-page__toggle-pill button.active {
   background-color: #0066cc;
   color: #fff;
+}
+
+/* ----------------------------------- MOBILE ----------------------------------- */
+@media (max-width: 600px) {
+  .note-page--edit .note-page__preview {
+    display: none;
+  }
+
+  .note-page__editor {
+    height: 80vh;
+  }
 }

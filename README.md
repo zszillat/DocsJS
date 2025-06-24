@@ -4,58 +4,50 @@ Multiple users will be able to edit notes simultaneously and see their updates i
 
 ## Tech Stack
 - **Frontend**: [ReactJS](https://react.dev/) using [TypeScript](https://www.typescriptlang.org/docs/)
-- **Database**: [Firebase Realtime Database](https://firebase.google.com/docs/database)
-- **Markdown Engine**: [react-markdown](https://github.com/remarkjs/react-markdown)
+- **Database**: [Firestore](https://firebase.google.com/docs/firestore)
+- **Text Editor**: [TipTap](https://tiptap.dev/docs)
+- **Realtime & CRDT**: [Yjs](https://docs.yjs.dev/) + [y-websocket](https://docs.yjs.dev/ecosystem/connection-provider/y-websocket) (for live sync and cursors)
 - **Hosting**: [DigitalOcean Droplet](https://www.digitalocean.com/products/droplets)
 
 ## Development Roadmap
-1. ~~**Initialize Project**~~
-    - ~~Create ReactJS Project~~
-    - ~~Install Dependencies~~
-    - ~~Create initial README.md~~
-2. ~~**Firebase Setup**~~
-    - ~~Create Firebase Project~~
-    - ~~Create Realtime Database~~
-    - ~~Setup .env File~~
-    - ~~Integrate Firebase into ReactJS Project~~
-3. ~~**Routing Pages**~~
-    - ~~Landing Page~~
-    - ~~Note View~~
-4. ~~**Landing Page**~~
-    - ~~Button for Creating a New Note~~
-        - ~~Generate Unique 6 Character noteID~~
-        - ~~Write Note to Database~~
-        - ~~Navigate to *"/:noteID"* in edit mode (no password prompt)~~
-    - ~~Authentication Options~~
-        - ~~No Password~~
-        - ~~Password for Editing~~
-            - ~~Edit Password Textbox~~
-        - ~~Password for Editing & Viewing~~
-            - ~~Edit Password Textbox~~
-            - ~~View Password Textbox~~
-            - ~~Same Password Checkbox (Condenses 2 Textboxes into 1)~~
-5. ~~**Note Page**~~
-    - ~~Page Loading~~
-        - ~~Load in View Mode~~
-        - ~~Check for View Password~~
-    - ~~Switching to Edit Mode~~
-        - ~~Check for Edit Password~~
-    - ~~Live Updates with Firebase~~
-6. CSS Styling
-    - Style Landing Page
-    - Style Note Page
-    - Check Responsiveness
-7. Testing
-    - Test Thoroughly
-    - Fix Bugs
-8. Deployment
-    - Spin up DigitalOcean Droplet
-    - Purchase Domain
-    - Set DNS Records
-    - Setup SSL Certificate with nginx + certbot
+**Phase 1**: Initialization ✅
+- Initialize React + TypeScript Project ✅
+- Install Dependencies & Create `README.md` ✅
+- Page Routing ✅
+- Firebase RTDB Setup & Integration ✅
+
+**Phase 2**: Note Creation
+- Landing Page Setup ✅
+- Note Creation
+- Note Authentication (Write Protection, Read/Write Protection)
+
+**Phase 3**: Notes & Collaboration
+- Note Page Setup
+- Embed TipTap Text Editor
+- Real Time Sync Between Users
+- Conflict-Free Merging (Cursor Transforms)
+
+**Phase 4**: Markdown & Styling
+- WYSIWYG Markdown Implementation
+- Site CSS Styling
+- Responsive Layouts
+
+**Phase 5**: Quality Assurance
+- Testing
+- Bug Fixes
+
+**Phase 6**: Deployment
+- Setup Digital Ocean Droplet
+- Obtain Domain ✅
+- Point DNS Records 
+- Setup SSL Certificate
+
     
 ## Optional Features
 - Note Expiration and Renewals
 - Dark/Light Mode
 - Version History
 - Copy & Paste Link Button
+
+## Changelog
+- **2025-06-20**: Pivoted to Yjs + Firestore for robust CRDT syncing and cursor handling 

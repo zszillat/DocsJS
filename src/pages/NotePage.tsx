@@ -4,6 +4,7 @@ import { ref, onValue, update } from "firebase/database";
 import { db } from "../firebase";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import CopyLink from "./CopyLink";
 
 type AccessType = "none" | "edit" | "viewEdit";
 
@@ -38,7 +39,7 @@ export default function NotePage() {
     useEffect(() => {
         if (!noteId) {
             setError("Invalid note ID.");
-            setTimeout(() => setLoading(false), 2000);
+            setLoading(false);
             return;
         }
         const noteRef = ref(db, `notes/${noteId}`); //Note's location in the database
@@ -47,7 +48,7 @@ export default function NotePage() {
             snapshot => {
                 if (!snapshot.exists()) {
                     setError("Note not found.");
-                    setTimeout(() => setLoading(false), 2000);
+                    setLoading(false);
                 } else {
                     const data = snapshot.val() as NoteData;
                     setNote(data);
@@ -56,12 +57,12 @@ export default function NotePage() {
                         setAuthorized(true);
                     }
                     setEditInput(data.content);
-                    setTimeout(() => setLoading(false), 2000);
+                    setLoading(false);
                 }
             },
             err => {
                 setError(err.message);
-                setTimeout(() => setLoading(false), 2000);
+                setLoading(false);
             }
         );
         return () => unsubscribe();
@@ -144,7 +145,8 @@ export default function NotePage() {
 
     return (
         <>
-            <h1>SyncBin</h1>
+            <h1 className="site-header">SyncBin</h1>
+            <CopyLink link={"https://syncbin.net/" + noteId} />
             <div className={`note-page ${isEditing ? "note-page--edit" : "note-page--view"}`}>
                 {/* Toggle Pill */}
                 <div className="note-page__toggle-pill-wrapper">
